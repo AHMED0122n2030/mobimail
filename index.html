@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>شركة موبيميل</title>
+    <style>
+        body.dark-mode {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            background: url('https://imgur.com/tTWB0tQ.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: darken;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .service {
+            margin: 0 10px;
+        }
+        .service a, .service button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .service button:hover {
+            background-color: #555;
+        }
+        .hidden {
+            display: none;
+        }
+        .background {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        #mobile {
+            background: url('https://imgur.com/ysmkfeD.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: darken;
+        }
+        #landline {
+            background: url('https://imgur.com/rgODexh.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: darken;
+        }
+        #hotline {
+            background: url('https://imgur.com/boDLSBL.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: darken;
+        }
+        #international {
+            background: url('https://imgur.com/Osp6v2q.jpg') no-repeat center center fixed;
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0.5);
+            background-blend-mode: darken;
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <div class="container">
+        <h1>أهلا بك فى شركة اتصالات موبيميل</h1>
+        <div class="services">
+            <div class="service">
+                <a href="https://sites.google.com/view/mobimail/الرقم-المحمول">خطوط المحمول</a>
+                <button onclick="showPage('mobile')">جرب الخدمة</button>
+            </div>
+            <div class="service">
+                <a href="https://sites.google.com/view/mobimail/الخط-الارضى">الخطوط الارضى</a>
+                <button onclick="showPage('landline')">جرب الخدمة</button>
+            </div>
+            <div class="service">
+                <a href="https://sites.google.com/view/mobimail/الخط-الساخن">الخطوط الساخنة</a>
+                <button onclick="showPage('hotline')">جرب الخدمة</button>
+            </div>
+            <div class="service">
+                <a href="https://sites.google.com/view/mobimail/تشفير">الاتصال الدولى</a>
+                <button onclick="showPage('international')">جرب الخدمة</button>
+            </div>
+        </div>
+        <div id="contact-info">
+            رقمنا المحمول: 014444444444 - رقم الخط الارضى: 0014444444 - رقم الخط الساخن: 19444 - رقم الخط الدولى: 0044444
+        </div>
+    </div>
+
+    <div id="mobile" class="hidden background">
+        <h2>خدمة خطوط المحمول</h2>
+        <input type="text" id="mobile-number" placeholder="ادخل رقم الهاتف المحمول">
+        <button onclick="simulateCall('mobile')">اتصال</button>
+        <div id="mobile-info" class="hidden">
+            <p>الاسم: جابر محمد لطفى</p>
+            <p>البلد: مصر</p>
+            <p>نوع الخدمة: مشفره</p>
+            <p>نوع الخادم: عام وخاص</p>
+            <input type="text" id="mobile-code" placeholder="ادخل الشفره">
+            <button onclick="decrypt('mobile')">فك التشفير</button>
+            <div id="mobile-decrypted"></div>
+            <div id="mobile-bot">
+                <p>بوت موبيميل: اهلا وسهلا بحضرتك فى موبيميل انا بوت برمجى يمكن تغييرى حسب الطلب</p>
+                <input type="text" id="mobile-bot-input" placeholder="اكتب رسالة">
+                <button onclick="sendBotMessage('mobile')">ارسال</button>
+                <div id="mobile-bot-response"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="landline" class="hidden background">
+        <h2>خدمة الخطوط الارضى</h2>
+        <input type="text" id="landline-number" placeholder="ادخل رقم الخط الارضى">
+        <button onclick="simulateCall('landline')">اتصال</button>
+        <div id="landline-info" class="hidden">
+            <p>الاسم: جابر محمد لطفى</p>
+            <p>البلد: مصر</p>
+            <p>نوع الخدمة: مشفره</p>
+            <p>نوع الخادم: عام وخاص</p>
+            <input type="text" id="landline-code" placeholder="ادخل الشفره">
+            <button onclick="decrypt('landline')">فك التشفير</button>
+            <div id="landline-decrypted"></div>
+            <div id="landline-bot">
+                <p>بوت موبيميل: اهلا وسهلا بحضرتك فى موبيميل انا بوت برمجى يمكن تغييرى حسب الطلب</p>
+                <input type="text" id="landline-bot-input" placeholder="اكتب رسالة">
+                <button onclick="sendBotMessage('landline')">ارسال</button>
+                <div id="landline-bot-response"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="hotline" class="hidden background">
+        <h2>خدمة الخطوط الساخنة</h2>
+        <input type="text" id="hotline-number" placeholder="ادخل رقم الخط الساخن">
+        <button onclick="simulateCall('hotline')">اتصال</button>
+        <div id="hotline-info" class="hidden">
+            <p>الاسم: جابر محمد لطفى</p>
+            <p>البلد: مصر</p>
+            <p>نوع الخدمة: مشفره</p>
+            <p>نوع الخادم: عام وخاص</p>
+            <input type="text" id="hotline-code" placeholder="ادخل الشفره">
+            <button onclick="decrypt('hotline')">فك التشفير</button>
+            <div id="hotline-decrypted"></div>
+            <div id="hotline-bot">
+                <p>بوت موبيميل: اهلا وسهلا بحضرتك فى موبيميل انا بوت برمجى يمكن تغييرى حسب الطلب</p>
+                <input type="text" id="hotline-bot-input" placeholder="اكتب رسالة">
+                <button onclick="sendBotMessage('hotline')">ارسال</button>
+                <div id="hotline-bot-response"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="international" class="hidden background">
+        <h2>خدمة الاتصال الدولى</h2>
+        <input type="text" id="international-number" placeholder="ادخل رقم الخط الدولى">
+        <button onclick="simulateCall('international')">اتصال</button>
+        <div id="international-info" class="hidden">
+            <p>الاسم: جابر محمد لطفى</p>
+            <p>البلد: مصر</p>
+            <p>نوع الخدمة: مشفره</p>
+            <p>نوع الخادم: عام وخاص</p>
+            <input type="text" id="international-code" placeholder="ادخل الشفره">
+            <button onclick="decrypt('international')">فك التشفير</button>
+            <div id="international-decrypted"></div>
+            <div id="international-bot">
+                <p>بوت موبيميل: اهلا وسهلا بحضرتك فى موبيميل انا بوت برمجى يمكن تغييرى حسب الطلب</p>
+                <input type="text" id="international-bot-input" placeholder="اكتب رسالة">
+                <button onclick="sendBotMessage('international')">ارسال</button>
+                <div id="international-bot-response"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const letterMap = {
+            '1': 'ا', '2': 'ب', '3': 'ج', '4': 'د', '5': 'ه', '6': 'و', '7': 'ز', '8': 'ح', '9': 'ط', '10': 'ي', 
+            '20': 'ك', '30': 'ل', '40': 'م', '50': 'ن', '60': 'س', '70': 'ع', '80': 'ف', '90': 'ص', '100': 'ق', 
+            '200': 'ر', '300': 'ش', '400': 'ت', '500': 'ث', '600': 'خ', '700': 'ذ', '800': 'ض', '900': 'ظ', '1000': 'غ'
+        };
+
+        function showPage(service) {
+            document.querySelectorAll('.background').forEach(div => div.classList.add('hidden'));
+            document.getElementById(service).classList.remove('hidden');
+        }
+
+        function simulateCall(service) {
+            setTimeout(() => {
+                document.getElementById(`${service}-info`).classList.remove('hidden');
+            }, 5000);
+        }
+
+        function decrypt(service) {
+            const input = document.getElementById(`${service}-code`).value;
+            const numbers = input.split('-');
+            let result = '';
+            numbers.forEach(num => {
+                result += letterMap[num] || '';
+            });
+            document.getElementById(`${service}-decrypted`).textContent = result;
+        }
+
+        function sendBotMessage(service) {
+            const input = document.getElementById(`${service}-bot-input`).value;
+            document.getElementById(`${service}-bot-response`).textContent = `شكرا لتعامل حضرتك`;
+        }
+    </script>
+</body>
+</html>
